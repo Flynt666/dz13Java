@@ -1,12 +1,15 @@
 package ru.netology.domain;
 
 public class Book extends Product {
-    String author;
 
-    public Book(int id, String title, int price, String author) {
-        super(id, title, price);
-        this.author = author;
-    }
+        private String author;
+
+
+
+        public Book(int id, String name, int price, String author) {
+            super(id, name, price);
+            this.author = author;
+        }
 
     public String getAuthor() {
 

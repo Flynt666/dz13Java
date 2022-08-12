@@ -17,7 +17,7 @@ public class ProductRepositoryTest {
         repository.save(Book2);
         repository.removeById(2);
         Product[] expected = new Product[]{Book1};
-        Product[] actual = repository.findAll();
+        Product[] actual = repository.getProducts();
         assertArrayEquals(expected, actual);
     }
 }

@@ -3,35 +3,34 @@ package ru.netology.repository;
 import ru.netology.domain.Product;
 
 public class ProductRepository {
-    private Product[] product = new Product[0];
+    private Product[] products = new Product[0];
 
-    public void save(Product item) {
-        Product[] tmp = new Product[product.length + 1];
-        for (int i = 0; i < product.length; i++) {
-            tmp[i] = product[i];
-        }
-        tmp[tmp.length - 1] = item;
-        product = tmp;
+    public void save(Product product) {
+        int length = products.length + 1;
+        Product[] tmp = new Product[length];
+        System.arraycopy(products, 0, tmp, 0, products.length);
+        int lastIndex = tmp.length - 1;
+        tmp[lastIndex] = product;
+        products = tmp;
     }
 
-    public Product[] findAll() {
-        return product;
+    public Product[] getProducts() {
+        return products;
     }
+
 
     public void removeById(int id) {
-        int length = product.length - 1;
+        int length = products.length - 1;
         Product[] tmp = new Product[length];
         int index = 0;
-        for (Product item : product) {
-            if (item.getId() != id) {
-                tmp[index] = item;
+        for (Product product : products) {
+            if (product.getId() != id) {
+                tmp[index] = product;
                 index++;
             }
         }
-        product = tmp;
+        products = tmp;
     }
-
-
 }
 
 
